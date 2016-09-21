@@ -93,4 +93,18 @@ describe "Static pages" do
                     :text => "Ruby on Rails Tutorial Sample App | About Us")
     end
   end
+
+  describe "Contact page" do
+
+    it "h1タグで囲まれた 'Contact' があるか" do
+      visit '/static_pages/contact'
+      page.should have_selector('h1', :text => 'Contact') #h1タグで囲まれたContactが存在するかを確認し、contactページの存在を確かめる
+    end
+
+    it "タイトルが 'Contact' になっているか" do
+      visit '/static_pages/contact'
+      page.should have_selector('title',
+                    :text => "Ruby on Rails Tutorial Sample App | Contact") #タイトルが正しいかを確認する
+    end
+  end
 end
